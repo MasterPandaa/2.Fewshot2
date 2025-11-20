@@ -1,6 +1,7 @@
-import pygame
 import random
 import sys
+
+import pygame
 
 # Inisialisasi Pygame
 pygame.init()
@@ -38,7 +39,11 @@ def random_food_position(snake_body):
     grid_rows = SCREEN_HEIGHT // BLOCK_SIZE
 
     # Daftar semua sel grid
-    all_cells = [(c * BLOCK_SIZE, r * BLOCK_SIZE) for r in range(grid_rows) for c in range(grid_cols)]
+    all_cells = [
+        (c * BLOCK_SIZE, r * BLOCK_SIZE)
+        for r in range(grid_rows)
+        for c in range(grid_cols)
+    ]
     # Hapus sel yang ditempati ular
     snake_cells = set(tuple(seg) for seg in snake_body)
     free_cells = [cell for cell in all_cells if cell not in snake_cells]
